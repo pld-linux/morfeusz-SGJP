@@ -1,0 +1,36 @@
+--- morfeusz-SGJP-20110416/Makefile.linux32~	2011-04-15 22:01:07.000000000 +0200
++++ morfeusz-SGJP-20110416/Makefile.linux32	2012-04-18 10:58:25.614028670 +0200
+@@ -8,7 +8,7 @@
+ 
+ PROG = morfeusz
+ 
+-OPTFLAGS = -I$(SRCDIR) -I$(SRCDIR)/encodings -I$(SRCDIR)/dfabuilder -s -Wall -O2 
++OPTFLAGS = -I$(SRCDIR) -I$(SRCDIR)/encodings -I$(SRCDIR)/dfabuilder -s -Wall $(OPT)
+ CXXFLAGS = $(OPTFLAGS) -fPIC -Wno-write-strings 
+ 
+ include ../Makefile.common
+@@ -19,5 +19,5 @@
+ 	ln -sf $(LIBMORF).$(MAJOR) $(LIBMORF)
+ 
+ $(PROG): $(SRCDIR)/client.cc $(SRCDIR)/morfeusz.h
+-	$(CXX) $(OPTFLAGS) -o $@ $< -L./ -lmorfeusz -lreadline
++	$(CXX) $(OPTFLAGS) $(LDFLAGS) -o $@ $< -L./ -lmorfeusz -lreadline
+ 
+--- morfeusz-SGJP-20110416/Makefile.linux64~	2011-04-15 22:10:54.000000000 +0200
++++ morfeusz-SGJP-20110416/Makefile.linux64	2012-04-18 10:58:58.587361766 +0200
+@@ -8,7 +8,7 @@
+ 
+ PROG = morfeusz
+ 
+-OPTFLAGS =  -m64 -I$(SRCDIR) -I$(SRCDIR)/encodings -I$(SRCDIR)/dfabuilder -s -Wall -O2 
++OPTFLAGS = -I$(SRCDIR) -I$(SRCDIR)/encodings -I$(SRCDIR)/dfabuilder -s -Wall $(OPT)
+ CXXFLAGS = $(OPTFLAGS) -fPIC -Wno-write-strings 
+ 
+ include ../Makefile.common
+@@ -19,5 +19,5 @@
+ 	ln -sf $(LIBMORF).$(MAJOR) $(LIBMORF)
+ 
+ $(PROG): $(SRCDIR)/client.cc $(SRCDIR)/morfeusz.h
+-	$(CXX) $(OPTFLAGS) -o $@ $< -L./ -lmorfeusz -lreadline
++	$(CXX) $(OPTFLAGS) $(LDFLAGS) -o $@ $< -L./ -lmorfeusz -lreadline
+ 
