@@ -2,7 +2,7 @@ Summary:	Morfeusz morphological analyzer
 Summary(pl.UTF-8):	Analizator morfologiczny Morfeusz
 Name:		morfeusz-SGJP
 Version:	20110416
-Release:	2
+Release:	3
 License:	BSD
 Group:		Applications/Dictionaries
 Source0:	http://sgjp.pl/morfeusz/download/%{name}-src-%{version}.tar.bz2
