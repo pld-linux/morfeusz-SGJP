@@ -2,7 +2,7 @@ Summary:	Morfeusz morphological analyzer
 Summary(pl.UTF-8):	Analizator morfologiczny Morfeusz
 Name:		morfeusz-SGJP
 Version:	20110416
-Release:	4
+Release:	5
 License:	BSD
 Group:		Applications/Dictionaries
 Source0:	http://sgjp.pl/morfeusz/download/%{name}-src-%{version}.tar.bz2
@@ -40,17 +40,17 @@ Pliki do tworzenia aplikacji wykorzystujących Morfeusza.
 %patch0 -p1
 
 %build
-mkdir build
+mkdir -p build
 cd build
 %ifarch %{x8664}
-ln -s ../Makefile.linux64 Makefile
+ln -sf ../Makefile.linux64 Makefile
 %else
-ln -s ../Makefile.linux32 Makefile
+ln -sf ../Makefile.linux32 Makefile
 %endif
 
 %{__make} -j1 \
 	LDFLAGS="%{rpmldflags}" \
-	OPT="%{rpmcppflags} %{rpmcflags} -Wno-error"
+	OPT="%{rpmcppflags} %{rpmcflags} -Wno-error -Wno-narrowing"
 
 %install
 rm -rf $RPM_BUILD_ROOT
